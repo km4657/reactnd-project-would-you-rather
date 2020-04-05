@@ -17,22 +17,23 @@ class App extends Component {
   render() {
     return (
       <Router>
-       <Fragment>
-         <LoadingBar />
-         <div className='container'>
-           <Nav />
-           {this.props.loading === true
-             ? null
-             : <div>
-                 <Route path='/' exact component={SignIn} />
-                 <Route path='/question/:id' component={Question} />
-                 <Route path='/add' component={NewQuestion} />
-                 <Route path='/leaderboard' component={Leaderboard} />
-                 <Route path='/homepage' component={Homepage} />
-               </div>}
-         </div>
-       </Fragment>
-     </Router>
+        <Fragment>
+          <LoadingBar />
+          <div className='container'>
+            {this.props.loading === true
+              ? <div>
+                <Route path='/' exact component={SignIn} />
+                </div>
+              : <div>
+                  <Nav />
+                  <Route path='/question/:id' component={Question} />
+                  <Route path='/add' component={NewQuestion} />
+                  <Route path='/leaderboard' component={Leaderboard} />
+                  <Route path='/homepage' component={Homepage} />
+                </div>}
+          </div>
+        </Fragment>
+      </Router>
     )
   }
 }

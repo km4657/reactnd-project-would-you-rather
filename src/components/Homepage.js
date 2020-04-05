@@ -19,8 +19,9 @@ class Homepage extends React.Component {
   }
 }
 
-function mapStateToProps({questions}) {
+function mapStateToProps({authedUser, questions}) {
   return {
+    authedUser,
     questionIds: Object.keys(questions)
       .sort((a,b) => questions[b].timestamp - questions[a].timestamp)
   }
