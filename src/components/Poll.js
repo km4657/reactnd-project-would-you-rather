@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { formatQuestion } from '../utils/helpers'
-import Results from './Results'
-import Options from './Options'
-import { Card } from 'reactstrap';
+import { Card, CardBody, CardTitle } from 'reactstrap';
+import { Link, withRouter } from 'react-router-dom'
 
 
-class Question extends Component {
+class Poll extends Component {
   render() {
     const { question } = this.props
 
@@ -18,18 +17,19 @@ class Question extends Component {
 
     return (
       <div>
+      <Link to={`/question/${id}`} >
       <Card>
-      {hasAnswered === true
-                ? <Results id={id} />
-                : <Options id={id}/>}
+      <CardBody>
+      <CardTitle>Question is  {id}</CardTitle>
+      </CardBody>
       </Card>
+      </Link>
       </div>
     )
   }
 }
 
-function mapStateToProps({questions, users, authedUser}, props) {
-  const { id } = props.match.params
+function mapStateToProps({questions, users, authedUser}, {id}) {
   const question = questions[id]
 
   return {
@@ -40,4 +40,4 @@ function mapStateToProps({questions, users, authedUser}, props) {
   }
 }
 
-export default connect(mapStateToProps)(Question)
+export default withRouter(connect(mapStateToProps)(Poll))

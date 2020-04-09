@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import { setAuthedUser } from '../actions/authedUser'
 
 class Nav extends Component {
 
-  handleLogout = (e) => {
+  handleClick = (e) => {
     e.preventDefault()
-
-    // todo: Handle Logout
     const { dispatch } = this.props
     dispatch(setAuthedUser(null))
   }
@@ -19,11 +17,6 @@ class Nav extends Component {
     return (
       <nav className='nav'>
         <ul>
-        <li>
-            <NavLink to='/' exact activeClassName='active' onClick={this.handleLogout}>
-             Logout
-            </NavLink>
-          </li>
           <li>
             <NavLink to='/homepage' activeClassName='active'>
               Home
@@ -38,6 +31,11 @@ class Nav extends Component {
             <NavLink to='/leaderboard' activeClassName='active'>
              Leaderboard
             </NavLink>
+          </li>
+          <li>
+            <Link to='/' activeClassName='active' onClick={this.handleClick}>
+             Logout
+            </Link>
           </li>
           <li>
             <img

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Question from './Question'
+import Poll from './Poll'
 
 class Homepage extends React.Component {
   render() {
@@ -10,7 +10,7 @@ class Homepage extends React.Component {
         <ul className='question-list'>
           {this.props.questionIds.map((id) => (
             <li key={id}>
-             <Question id={id}/>
+             <Poll id={id}/>
             </li>
           ))}
         </ul>

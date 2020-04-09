@@ -20,16 +20,17 @@ class App extends Component {
         <Fragment>
           <LoadingBar />
           <div className='container'>
-            {this.props.loading === true
+            {this.props.unauth === true
               ? <div>
-                <Route path='/' exact component={SignIn} />
+                <Route path='/' component={SignIn} />
                 </div>
               : <div>
-                  <Nav />
-                  <Route path='/question/:id' component={Question} />
-                  <Route path='/add' component={NewQuestion} />
-                  <Route path='/leaderboard' component={Leaderboard} />
-                  <Route path='/homepage' component={Homepage} />
+                <Nav />
+                <Route path='/' exact component={SignIn} />
+                <Route path='/homepage' component={Homepage} />
+                <Route path='/question/:id' component={Question} />
+                <Route path='/add' component={NewQuestion} />
+                <Route path='/leaderboard' component={Leaderboard} />
                 </div>}
           </div>
         </Fragment>
@@ -40,7 +41,7 @@ class App extends Component {
 
 function mapStateToProps({authedUser}) {
   return {
-    loading: authedUser===null
+    unauth: authedUser===null
   }
 }
 export default connect(mapStateToProps)(App)

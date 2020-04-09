@@ -38,18 +38,17 @@ export function receiveQuestions(questions) {
 }
 
 
-function answerQuestion ({ id, authedUser, answer }) {
+function answerQuestion ({ authedUser, qid, answer }) {
   return {
     type: ANSWER_QUESTION,
-    id,
+    qid,
     authedUser,
     answer
   }
 }
 
 export function handleAnswerQuestion (info) {
-  return (dispatch, getState) => {
-    const { authedUser } = getState()
+  return (dispatch) => {
     return saveQuestionAnswer(info)
       .then( () => dispatch(answerQuestion(info)))
 
