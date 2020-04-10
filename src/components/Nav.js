@@ -37,12 +37,12 @@ class Nav extends Component {
              Logout
             </Link>
           </li>
-          <li>
+          <li id="user">
             <img
               src={user.avatarURL}
               alt={`Avatar of ${user.name}`}
               className='avatar'
-            />
+            />{user.name}
           </li>
         </ul>
       </nav>

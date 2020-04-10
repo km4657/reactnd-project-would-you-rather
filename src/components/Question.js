@@ -18,7 +18,7 @@ class Question extends Component {
 
     return (
       <div>
-      <Card>
+      <Card style={{ width: '25rem' }}>
       {hasAnswered === true
                 ? <Results id={id} />
                 : <Options id={id}/>}

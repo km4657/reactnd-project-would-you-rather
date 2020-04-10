@@ -22,3 +22,4 @@ export function formatQuestion (question, user, authedUser) {
     hasAnsweredB: optionTwo.votes.includes(authedUser)
   }
 }
+

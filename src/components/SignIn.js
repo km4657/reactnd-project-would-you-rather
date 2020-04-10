@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser'
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import yoda from '../yoda.png'
+
+
+import { Button, Form, FormGroup, Label, Input, Card, CardBody, CardTitle } from 'reactstrap';
 
 class SignIn extends Component {
 
@@ -35,17 +38,22 @@ class SignIn extends Component {
 
     const { username } = this.state
     return (
+      <Card style={{ width: '20rem' }}>
+      <CardBody>
+      <img src={yoda} class="center"/>
       <Form onSubmit={this.handleSubmit}>
         <FormGroup>
-          <Label>Who are you?</Label>
+          <legend class="center">Ready?</legend>
           <Input type="select" value={username} onChange={this.handleChange}>
             {this.props.userIds.map((id) => (
                 <option key={id} value={id}>{id}</option>
             ))}
           </Input>
         </FormGroup>
-        <Button color="primary" size="lg" disabled={username === ''} block>Submit</Button>
+        <Button color="secondary" size="lg" disabled={username === ''} block>Submit</Button>
       </Form>
+      </CardBody>
+      </Card>
     )
   }
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { formatQuestion } from '../utils/helpers'
-import { Card, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardBody, CardTitle, CardText, Row, Col, Button} from 'reactstrap';
 import { Link, withRouter } from 'react-router-dom'
 
 
@@ -13,18 +13,38 @@ class Poll extends Component {
       return <p>This question doesn't exist</p>
     }
 
-    const { id, avatarURL, hasAnswered } = question
+    const { id, name, avatarURL } = question
+    const answered = this.props.answered
 
     return (
-      <div>
-      <Link to={`/question/${id}`} >
-      <Card>
-      <CardBody>
-      <CardTitle>Question is  {id}</CardTitle>
-      </CardBody>
-      </Card>
-      </Link>
-      </div>
+        <Card>
+          <CardBody>
+              <div>
+              <Row>
+              <Col>
+              <img src={avatarURL} className='photo'/> 
+              </Col>
+              <Col>
+              <CardTitle>
+                {name} asks: 
+              </CardTitle>
+              {this.props.answered === 'true' ?
+                <div>
+                  <Link to={`/question/${id}`} >
+                    <Button color="primary" size="lg" block>See Results</Button>
+                  </Link>
+                </div>
+              : <div>
+                  <Link to={`/question/${id}`} >
+                    <Button color="primary" size="lg" block>Answer Question</Button>
+                  </Link>
+                </div>
+            }
+              </Col>
+              </Row>
+              </div>
+          </CardBody>
+        </Card>
     )
   }
 }

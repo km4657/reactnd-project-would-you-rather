@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { formatQuestion } from '../utils/helpers'
 import { handleAnswerQuestion } from '../actions/questions'
-import { Button, Form, FormGroup, Label, Input, CardBody, CardTitle } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, CardBody, CardTitle, Row, Col } from 'reactstrap';
 
 
 class Options extends Component {
@@ -34,28 +34,35 @@ class Options extends Component {
       return <p>This question doesn't exist</p>
     }
 
-    const { name, optionOneText, optionTwoText } = question
+    const { name, avatarURL, optionOneText, optionTwoText } = question
     return (
       <CardBody>
-      <CardTitle>{name} Asks: </CardTitle>
-      <Form onSubmit={this.handleSubmit}>
-      <FormGroup>
-        <legend>Would You Rather?</legend>
-        <FormGroup check>
-          <Label check>
-            <Input type="radio" id='radio-1' name='myRadio' value="optionOne" checked={this.state.answer === 'optionOne'} onChange={this.handleChange}/>
-          {optionOneText}
-          </Label>
-        </FormGroup>
-        <FormGroup check>
-          <Label check>
-            <Input type="radio" id='radio-2' name='myRadio' value="optionTwo" checked={this.state.answer === 'optionTwo'} onChange={this.handleChange}/>
-            {optionTwoText}
-          </Label>
-        </FormGroup>
-      </FormGroup>
-      <Button color="primary" size="lg" block>Submit Answer</Button>
-      </Form>
+        <Row>
+        <Col>
+        <img src={avatarURL} className='photo'/> 
+        </Col>
+        <Col>
+          <Form onSubmit={this.handleSubmit}>
+          <FormGroup>
+            <legend class="center">Would You Rather?</legend>
+            <br></br>
+            <FormGroup check>
+              <Label check>
+                <Input type="radio" id='radio-1' name='myRadio' value="optionOne" checked={this.state.answer === 'optionOne'} onChange={this.handleChange}/>
+              {optionOneText}
+              </Label>
+            </FormGroup>
+            <FormGroup check>
+              <Label check>
+                <Input type="radio" id='radio-2' name='myRadio' value="optionTwo" checked={this.state.answer === 'optionTwo'} onChange={this.handleChange}/>
+                {optionTwoText}
+              </Label>
+            </FormGroup>
+          </FormGroup>
+          <Button color="primary" size="lg" block>Submit Answer</Button>
+          </Form>
+        </Col>
+      </Row>
     </CardBody>
     )
   }
