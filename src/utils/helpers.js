@@ -18,8 +18,8 @@ export function formatQuestion (question, user, authedUser) {
     optionOneVotes: optionOne.votes.length,
     optionTwoVotes: optionTwo.votes.length,
     hasAnswered: optionOne.votes.includes(authedUser) || optionTwo.votes.includes(authedUser),
-    hasAnsweredA: optionOne.votes.includes(authedUser),
-    hasAnsweredB: optionTwo.votes.includes(authedUser)
+    hasAnsweredOne: optionOne.votes.includes(authedUser),
+    hasAnsweredTwo: optionTwo.votes.includes(authedUser)
   }
 }
 

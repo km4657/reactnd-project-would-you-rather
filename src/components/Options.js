@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { formatQuestion } from '../utils/helpers'
 import { handleAnswerQuestion } from '../actions/questions'
-import { Button, Form, FormGroup, Label, Input, CardBody, CardTitle, Row, Col } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, CardBody, CardText, Row, Col } from 'reactstrap';
 
 
 class Options extends Component {
@@ -22,9 +22,6 @@ class Options extends Component {
     const { dispatch, id, authedUser } = this.props
     const info = {authedUser, qid: id, answer}
     dispatch(handleAnswerQuestion(info))
-    this.setState(() => ({
-      answer: 'optionOne'
-    }))
   }
 
   render() {
@@ -34,24 +31,24 @@ class Options extends Component {
       return <p>This question doesn't exist</p>
     }
 
-    const { name, avatarURL, optionOneText, optionTwoText } = question
+    const { avatarURL, optionOneText, optionTwoText } = question
     return (
       <CardBody>
         <Row>
         <Col>
-        <img src={avatarURL} className='photo'/> 
+        <img src={avatarURL}  alt={`Question Author`}className='photo'/> 
         </Col>
         <Col>
           <Form onSubmit={this.handleSubmit}>
           <FormGroup>
-            <legend class="center">Would You Rather?</legend>
-            <br></br>
+            <CardText className="title">Would You Rather?</CardText>
             <FormGroup check>
               <Label check>
                 <Input type="radio" id='radio-1' name='myRadio' value="optionOne" checked={this.state.answer === 'optionOne'} onChange={this.handleChange}/>
               {optionOneText}
               </Label>
             </FormGroup>
+            <CardText className="title text-primary" >OR</CardText>
             <FormGroup check>
               <Label check>
                 <Input type="radio" id='radio-2' name='myRadio' value="optionTwo" checked={this.state.answer === 'optionTwo'} onChange={this.handleChange}/>

@@ -14,11 +14,11 @@ class Question extends Component {
       return <p>This question doesn't exist</p>
     }
 
-    const { id, avatarURL, hasAnswered } = question
+    const { id, hasAnswered } = question
 
     return (
       <div>
-      <Card style={{ width: '25rem' }}>
+      <Card>
       {hasAnswered === true
                 ? <Results id={id} />
                 : <Options id={id}/>}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { formatQuestion } from '../utils/helpers'
-import { Card, CardBody, CardTitle, CardText, Row, Col, Button} from 'reactstrap';
+import { Card, CardBody, CardTitle, Row, Col, Button} from 'reactstrap';
 import { Link, withRouter } from 'react-router-dom'
 
 
@@ -14,7 +14,6 @@ class Poll extends Component {
     }
 
     const { id, name, avatarURL } = question
-    const answered = this.props.answered
 
     return (
         <Card>
@@ -22,7 +21,7 @@ class Poll extends Component {
               <div>
               <Row>
               <Col>
-              <img src={avatarURL} className='photo'/> 
+              <img src={avatarURL}  alt={`Question Author`} className='photo'/> 
               </Col>
               <Col>
               <CardTitle>
