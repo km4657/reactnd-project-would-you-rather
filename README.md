@@ -1,10 +1,12 @@
 # Would You Rather Project
 
-This is the starter code for the final assessment project for Udacity's React & Redux course.
+This application is the implementation of the Udacity Would You Rather Project.  After signing in, the user is taken to their homepage where they can answer questions and see specific poll results.  The user can also add a new question and see all players' scores.
 
-The `_DATA.js` file represents a fake database and methods that let you access the data. The only thing you need to edit in the ` _DATA.js` file is the value of `avatarURL`. Each user should have an avatar, so you’ll need to add the path to each user’s avatar.
+NOTE:  Baby Yoda was found from https://www.clipart.email/clipart/baby-yoda-smiling-clipart-black-and-white-415191.html
 
-Using the provided starter code, you'll build a React/Redux front end for the application. We recommend using the [Create React App](https://github.com/facebook/create-react-app) to bootstrap the project.
+# Install
+* install all project dependencies with `npm install`
+* start the development server with `npm start` or `yarn start`
 
 ## Data
 
