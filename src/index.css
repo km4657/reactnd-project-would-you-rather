@@ -70,38 +70,6 @@ li {
   margin-right: auto;
 }
 
-.tweet {
-  width: 100%;
-  max-width: 590px;
-  padding: 10px;
-  display: flex;
-  margin: 0 auto;
-  border: 1px solid #dad7d7;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.tweet-info {
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-}
-.new-tweet {
-  width: 100%;
-  max-width: 590px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-}
-
-.textarea {
-  border-radius: 4px;
-  border: 1px solid #dad7d7;
-  padding: 10px;
-  font-size: 15px;
-  height: 100px;
-}
-
 .title {
   font-size: 24px;
   font-weight: bold;
@@ -109,7 +77,6 @@ li {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
 }
 
 .option {
@@ -118,3 +85,5 @@ li {
   text-align: left;
   display: block;
 }
+
+

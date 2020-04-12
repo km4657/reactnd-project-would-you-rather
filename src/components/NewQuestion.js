@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleAddQuestion } from '../actions/questions'
-import { Card, CardText, CardTitle, Button, Form, FormGroup, Label, Input, CardBody } from 'reactstrap';
+import { Card, CardText, CardTitle, Button, Form, FormGroup, Input, CardBody } from 'reactstrap';
 import { Redirect } from 'react-router-dom'
 
 class NewQuestion extends Component {
@@ -67,7 +67,6 @@ class NewQuestion extends Component {
           </Form>
         </CardBody>
       </Card>
-        
     )
   }
 }

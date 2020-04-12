@@ -38,10 +38,10 @@ class SignIn extends Component {
     return (
       <Card style={{ width: '20rem' }}>
       <CardBody>
-      <img src={yoda}  alt={`Yoda`} class="center"/>
+      <img src={yoda}  alt={`Yoda`} className="center"/>
       <Form onSubmit={this.handleSubmit}>
         <FormGroup>
-          <legend class="title">Ready?</legend>
+          <legend className="title">Ready?</legend>
           <Input type="select" value={username} onChange={this.handleChange}>
             {this.props.userIds.map((id) => (
                 <option key={id} value={id}>{id}</option>

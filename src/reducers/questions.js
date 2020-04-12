@@ -22,7 +22,7 @@ export default function questions(state = {}, action) {
       return {
         ...state,
         [action.question.id]: action.question,
-       }
+      }
     default :
       return state
   }

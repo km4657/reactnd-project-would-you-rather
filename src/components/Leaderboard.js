@@ -6,7 +6,6 @@ class Leaderboard extends React.Component {
   render() {
     return (
       <div>
-        <h3 className='center'>Leaderboard</h3>
         <ul className='userstat-list'>
           {this.props.userIds.map((id) => (
             <li key={id}>
