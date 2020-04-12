@@ -32,10 +32,7 @@ class App extends Component {
           <div className='container'>
             {this.props.unauth === true
               ? <div>
-                <Switch>
-                <Route exact path='/' component={SignIn} />
-                <Route  component={NoMatch} />
-                </Switch>
+                <Route path='/' component={SignIn} />
                 </div>
               : <div>
                 <Nav />
