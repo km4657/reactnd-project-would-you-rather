@@ -37,7 +37,7 @@ function mapStateToProps({authedUser, questions}) {
 
   const answeredIds = []
   const unansweredIds = []
-  const ids = Object.keys(questions)
+  const ids = Object.keys(questions).sort((a,b) => questions[b].timestamp - questions[a].timestamp);
   
   for (const id of ids) {
     if (questions[id].optionOne.votes.includes(authedUser) || questions[id].optionTwo.votes.includes(authedUser)) {

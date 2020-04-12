@@ -33,7 +33,7 @@ class Nav extends Component {
             </NavLink>
           </li>
           <li>
-            <Link to='/' activeClassName='active' onClick={this.handleClick}>
+            <Link to='/' onClick={this.handleClick}>
              Logout
             </Link>
           </li>

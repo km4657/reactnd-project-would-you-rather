@@ -60,13 +60,6 @@ li {
   margin: 10px;
 }
 
-.smavatar {
-  height: 25px;
-  border-radius: 25px;
-  margin: 10px;
-}
-
-
 .photo {
   height: 200px;
   border-radius: 25px;
@@ -117,4 +110,11 @@ li {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+}
+
+.option {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: left;
+  display: block;
 }

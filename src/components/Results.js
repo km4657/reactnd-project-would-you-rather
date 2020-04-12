@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { formatQuestion } from '../utils/helpers'
 import ReactMinimalPieChart from 'react-minimal-pie-chart'
 import { CardBody, CardText, CardTitle, Row, Col } from 'reactstrap';
+import star from '../star.png'
 
 
 
@@ -14,7 +15,7 @@ class Results extends Component {
       return <p>This question doesn't exist</p>
     }
 
-    const { name, avatarURL, optionOneText, optionTwoText, optionOneVotes, optionTwoVotes, hasAnsweredOne } = question
+    const { name, optionOneText, optionTwoText, optionOneVotes, optionTwoVotes, hasAnsweredOne } = question
     
    
     const option1color = `${hasAnsweredOne?'#5cb85c':'#0275d8'}`
@@ -27,11 +28,11 @@ class Results extends Component {
    
     return (
       <CardBody>
-        <CardTitle>
-          {name} asks
+        <CardTitle className="font-italic">
+          {name} asked:
         </CardTitle>
         <CardText className="title">
-          Would you rather
+          Would you rather...
         </CardText>
         <br></br>
         <Row>
@@ -68,24 +69,27 @@ class Results extends Component {
           radius={50}
           rounded
           startAngle={0}
+          style={{
+            height: '200px'
+          }}
           viewBoxSize={[
             100,
             100
           ]}
         />
         </Col>
-        <Col>
-          <CardText className={ hasAnsweredOne ? "text-center text-success" : "text-center text-primary"} >{optionOneText}?{hasAnsweredOne?<img
-              src={avatarURL}
-              alt={`You`}
-              className='smavatar'
-            />:''}</CardText>
-          <CardText className="title" >OR</CardText>
-          <CardText className={ hasAnsweredOne ? "text-center text-primary" : "text-center text-success"} >{optionTwoText}?{hasAnsweredOne?'':<img
-              src={avatarURL}
-              alt={`You`}
-              className='smavatar'
-            />}</CardText>
+        <Col xs="auto">
+          <CardText className={ hasAnsweredOne ? "option text-success" : "option text-primary"} >{hasAnsweredOne?<img
+              src={star}
+              alt={`Your Choice`}
+              className='avatar'
+            />:''}{optionOneText} OR</CardText>
+          <CardText className={ hasAnsweredOne ? "option text-primary" : "option text-success"} >{hasAnsweredOne?'':
+              <img
+              src={star}
+              alt={`Your Choice`}
+              className='avatar'
+            />}{optionTwoText}?</CardText>
          </Col>
         </Row>
       </CardBody>
