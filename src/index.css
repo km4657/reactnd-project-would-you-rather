@@ -60,6 +60,10 @@ li {
   margin: 10px;
 }
 
+.star {
+  height: 50px;
+}
+
 .photo {
   height: 200px;
   border-radius: 25px;

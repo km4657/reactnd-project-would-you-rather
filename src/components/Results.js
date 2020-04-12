@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { formatQuestion } from '../utils/helpers'
 import ReactMinimalPieChart from 'react-minimal-pie-chart'
-import { CardBody, CardText, CardTitle, Row, Col } from 'reactstrap';
+import { Table, CardBody, CardText, CardTitle, Row, Col } from 'reactstrap';
 import star from '../star.png'
 
 
@@ -38,7 +38,7 @@ class Results extends Component {
         <Row>
         <Col>
         <ReactMinimalPieChart
-          animate
+          animate={false}
           animationDuration={500}
           animationEasing="ease-out"
           cx={50}
@@ -56,11 +56,11 @@ class Results extends Component {
               label: option2label
             }]
           }
-          label= {props => { return props.data[props.dataIndex].label;}}
+          label
           labelPosition={60}
           labelStyle={{
             fontFamily: 'sans-serif',
-            fontSize: '7px'
+            fontSize: '12px'
           }}
           title
           lengthAngle={360}
@@ -70,7 +70,7 @@ class Results extends Component {
           rounded
           startAngle={0}
           style={{
-            height: '200px'
+            height: '150px'
           }}
           viewBoxSize={[
             100,
@@ -78,21 +78,48 @@ class Results extends Component {
           ]}
         />
         </Col>
-        <Col xs="auto">
-          <CardText className={ hasAnsweredOne ? "option text-success" : "option text-primary"} >{hasAnsweredOne?<img
-              src={star}
-              alt={`Your Choice`}
-              className='avatar'
-            />:''}{optionOneText} OR</CardText>
-          <CardText className={ hasAnsweredOne ? "option text-primary" : "option text-success"} >{hasAnsweredOne?'':
-              <img
-              src={star}
-              alt={`Your Choice`}
-              className='avatar'
-            />}{optionTwoText}?</CardText>
-         </Col>
+        <Col>
+          <CardText className={ hasAnsweredOne ? "option text-success" : "option text-primary"} >{optionOneText}</CardText>
+          <CardText className={ hasAnsweredOne ? "option text-primary" : "option text-success"} >{optionTwoText}?</CardText>
+        </Col>
         </Row>
-      </CardBody>
+        <Row></Row>
+        <Row>
+          <Table borderless>
+            <thead>
+              <tr>
+                <th></th>
+                <th></th>
+                <th>Number of Votes</th>
+                <th>Percentage of Votes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{hasAnsweredOne?<img
+                    src={star}
+                    alt={`Your Choice`}
+                    className='star'
+                    />:''}</td>
+                <td>{optionOneText}</td>
+                <td>{optionOneVotes}</td>
+                <td>{option1per}</td>
+              </tr>
+              <tr>
+                <td>{hasAnsweredOne?'':
+                  <img
+                  src={star}
+                  alt={`Your Choice`}
+                  className='star'
+                  />}</td>
+                <td>{optionTwoText}</td>
+                <td>{optionTwoVotes}</td>
+                <td>{option2per}</td>
+              </tr>
+            </tbody>
+          </Table>
+        </Row>
+    </CardBody>
     )
   }
 }

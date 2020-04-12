@@ -6,14 +6,15 @@ import { Button, Form, FormGroup, Input, Card, CardBody } from 'reactstrap';
 
 class SignIn extends Component {
 
+
   state = {
     username: ''
   }
-
+  
   handleChange = (e) => {
     const username = e.target.value
     this.setState(() => ({
-      username
+        username
     }))
   }
 
@@ -21,7 +22,7 @@ class SignIn extends Component {
     e.preventDefault()
 
     const { username } = this.state
-    
+
     const { dispatch } = this.props
    
     dispatch(setAuthedUser(username))
@@ -43,6 +44,7 @@ class SignIn extends Component {
         <FormGroup>
           <legend className="title">Ready?</legend>
           <Input type="select" value={username} onChange={this.handleChange}>
+            <option key='' value=''></option>
             {this.props.userIds.map((id) => (
                 <option key={id} value={id}>{id}</option>
             ))}
