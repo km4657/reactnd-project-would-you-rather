@@ -30,11 +30,27 @@ class SignIn extends Component {
     this.setState(() => ({
       username: ''
     }))
-     this.props.history.push(`/homepage`)
+
+    switch (this.props.location.pathname) {
+      case '/':
+        this.props.history.push(`/homepage`)
+        return
+      case '/add':
+        this.props.history.push(`/add`)
+        return
+      case '/leaderboard':
+        this.props.history.push(`/leaderboard`)
+        return
+      case '/question/:id':
+        this.props.history.push(`/question/:id`)
+        return
+      default:
+        this.props.history.push(this.props.location.pathname)
+        return
+    }
   }
 
   render() {
-
     const { username } = this.state
     return (
       <Card style={{ width: '20rem' }}>
@@ -58,11 +74,15 @@ class SignIn extends Component {
   }
 }
 
-function mapStateToProps({users, authedUser}) {
+function mapStateToProps({users, questions, authedUser} ) {
+
+  const ids = Object.keys(questions)
+  
   return {
     authedUser,
     userIds: Object.keys(users)
-      .sort((a,b) => users[b].id - users[a].id)
+      .sort((a,b) => users[b].id - users[a].id),
+    ids
   }
 }
 export default connect(mapStateToProps)(SignIn)

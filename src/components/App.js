@@ -16,8 +16,8 @@ import Question from './Question'
 // code from tylermcginnis.com (https://tylermcginnis.com/react-router-handling-404-pages/)
 const NoMatch = ({ location }) => (
   <div>
-    <h3>No match for {location.pathname}</h3>
-  </div>
+  <h3>No match for {location.pathname}</h3>
+</div>
 )
 
 class App extends Component {
